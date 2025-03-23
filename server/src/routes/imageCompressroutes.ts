@@ -1,10 +1,9 @@
 import express from "express";
-import multer from "multer";
+import { upload } from "../config/cloudinary"; // Multer config
 import { compressImage } from "../controllers/imageCompress";
 
 const router = express.Router();
-const upload = multer({ dest: "uploads/" });
 
-router.post("/compress", upload.single("image"), compressImage);
+router.post("/compress", upload.single("file"), compressImage);
 
 export default router;
