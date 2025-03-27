@@ -5,6 +5,7 @@ import path from "path";
 import cloudinary from "../config/cloudinary.js"; // Ensure correct import with file extension
 import fsExtra from "fs-extra";
 import { fileURLToPath } from "url";
+import CntModel from "../models/cnt.js";
 
 // For ES modules, define __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -87,6 +88,14 @@ export const convertImage = async (
     const result = await cloudinary.uploader.upload(convertedImagePath, {
       folder: "converted-images",
     });
+
+    if (result) {
+          await CntModel.findOneAndUpdate(
+            {}, // find the document (or you can use a query)
+            { $inc: { ImageConverted: 1 } },
+            { new: true, upsert: true } // upsert: create document if it doesn't exist
+          );
+        }
 
     // Standardize the original file path for deletion
     const originalImagePath = path.join(uploadDir, path.basename(req.file.path));
