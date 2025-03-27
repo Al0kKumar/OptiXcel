@@ -25,8 +25,8 @@ const StatsSection: React.FC<StatsSectionProps> = ({ compressedCount, convertedC
                 0
               )}
             </div>
-            <p className="text-2xl text-orange-400 mt-2">
-              Images Compressed
+            <p className="text-3xl  mt-2">
+            <span className='text-orange-400'>Ima</span><span className='text-orange-500'>ges</span> Compressed
             </p>
           </div>
           <div>
@@ -37,8 +37,8 @@ const StatsSection: React.FC<StatsSectionProps> = ({ compressedCount, convertedC
                 0
               )}
             </div>
-            <p className="text-2xl text-orange-400 mt-2">
-              Images Converted
+            <p className="text-3xl  mt-2">
+              <span className='text-orange-400'>Ima</span><span className='text-orange-500'>ges</span> Converted
             </p>
           </div>
         </div>

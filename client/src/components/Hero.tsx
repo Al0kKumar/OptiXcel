@@ -1,7 +1,7 @@
 
 import { Button } from "./Button";
 
-export const Hero = () => {
+export const Hero = ({scrollToFeatures}: {scrollToFeatures : () => void}) => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-950">
       <div className="flex flex-col items-center text-center">
@@ -15,7 +15,7 @@ export const Hero = () => {
         <div className="text-[54px] font-semibold mt-[-15px] text-white">
           made simple !
         </div>
-        <Button />
+        <Button onClick={scrollToFeatures} />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ const GitHubStarButton = () => {
   useEffect(() => {
     const fetchStars = async () => {
       try {
-        const res = await fetch("https://api.github.com/repos/USERNAME/REPO");
+        const res = await fetch("https://api.github.com/Al0kKumar/OptiXcel");
         const data = await res.json();
         setStars(data.stargazers_count);
       } catch (error) {
@@ -21,11 +21,11 @@ const GitHubStarButton = () => {
   }, []);
 
   return (
-    <Link href="https://github.com/USERNAME/REPO" legacyBehavior>
+    <Link href="https://github.com/Al0kKumar/OptiXcel" legacyBehavior>
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center px-4 py-2 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-full transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-[0_0_20px_5px_rgba(255,223,0,0.5)]"
+        className="flex items-center px-4 py-2 bg-gradient-to-r from-purple-500 to-orange-600 text-white rounded-full transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-[0_0_20px_5px_rgba(255,223,0,0.5)]"
       >
         <svg
           className="w-6 h-6 mr-2 fill-current"
