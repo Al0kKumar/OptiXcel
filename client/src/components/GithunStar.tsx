@@ -25,7 +25,7 @@ const GitHubStarButton = () => {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center px-4 py-2 bg-gradient-to-r from-purple-500 to-orange-600 text-white rounded-full transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-[0_0_20px_5px_rgba(255,223,0,0.5)]"
+        className="flex items-center px-4 py-2 bg-gradient-to-r from-blue-800 to-purple-600 text-white rounded-full transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-[0_0_20px_5px_rgba(255,223,0,0.5)]"
       >
         <svg
           className="w-6 h-6 mr-2 fill-current"
