@@ -17,7 +17,7 @@ export default function Home() {
    const comp = 123;
    const conv = 59;
   return (
-    <div className="bg-zinc-950 min-h-screen text-white">
+    <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300">
       <Navbar/>
         <Hero scrollToFeatures={scrollToFeatures}/>
         <div ref={featureRef}>

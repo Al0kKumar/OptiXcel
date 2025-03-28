@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Nav";
+import { saveAs } from "file-saver";
 
 const ResultPage = () => {
   const [resultUrl, setResultUrl] = useState<string>("");
@@ -12,9 +13,24 @@ const ResultPage = () => {
     }
   }, []);
 
-  const handleDownload = () => {
-    window.open(resultUrl, "_blank");
+  const handleDownload = async () => {
+    if (!resultUrl) return;
+  
+    const encodedUrl = encodeURIComponent(resultUrl);
+    const downloadEndpoint = `${process.env.NEXT_PUBLIC_API_URL}/api/download?url=${encodedUrl}`;
+  
+    try {
+      const response = await fetch(downloadEndpoint);
+      if (!response.ok) throw new Error("Download failed");
+  
+      const blob = await response.blob();
+      saveAs(blob, "downloaded-image.jpg"); // You can customize the filename
+    } catch (error) {
+      console.error("Error downloading the file:", error);
+      // Maybe show a user-friendly error message here
+    }
   };
+  
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
@@ -27,7 +43,7 @@ const ResultPage = () => {
             <img src={resultUrl} alt="Result" className="max-w-md rounded-lg mb-4 inline-block" />
             <button
               onClick={handleDownload}
-              className="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-base font-medium rounded-full hover:scale-105 transition-transform duration-300 shadow-lg"
+              className="px-8 py-3 rounded-2xl bg-gradient-to-r from-yellow-500 to-orange-600 text-white text-lg font-semibold hover:scale-105 hover:shadow-[0_0_40px_10px_rgba(30,144,255,0.7)] transition-all duration-300 shadow-md"
             >
               Download
             </button>
