@@ -22,7 +22,7 @@ OptiXcel is a premium SaaS platform designed for fast, high-performance image op
 
 ![Screenshot](/client/public/a2.png)
 
-![Screenshot](/client/public/a2.png)
+![Screenshot](/client/public/a3.png)
 
 ## Installation & Setup
 
