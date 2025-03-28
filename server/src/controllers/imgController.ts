@@ -51,53 +51,46 @@ export const compressImage = async (
       return;
     }
 
-    // Ensure the uploads directory exists
     const uploadDir = path.join(__dirname, "../uploads");
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
 
-    // Extract the original file extension
-    const fileExtension = path.extname(req.file.path).toLowerCase().replace(".", "");
+    const mimeType = req.file.mimetype; // e.g., "image/png"
     const compressedImagePath = path.join(
       uploadDir,
-      `compressed-${Date.now()}.${fileExtension}`
+      `compressed-${Date.now()}.${mimeType.split("/")[1]}` // "png", "jpeg", etc.
     );
 
-    console.log("Original file path:", req.file.path); // Debugging
-    console.log("Compressed file path:", compressedImagePath); // Debugging
+    console.log("Original file path:", req.file.path);
+    console.log("Compressed file path:", compressedImagePath);
+    console.log("MIME type:", mimeType);
 
-    // Compress the image while retaining the format
     const sharpInstance = sharp(req.file.path);
-    if (fileExtension === "png") {
+    if (mimeType === "image/png") {
       await sharpInstance.png({ quality: 70 }).toFile(compressedImagePath);
-    } else if (fileExtension === "jpeg" || fileExtension === "jpg") {
+    } else if (mimeType === "image/jpeg") {
       await sharpInstance.jpeg({ quality: 70 }).toFile(compressedImagePath);
-    } else if (fileExtension === "webp") {
+    } else if (mimeType === "image/webp") {
       await sharpInstance.webp({ quality: 70 }).toFile(compressedImagePath);
     } else {
-      res.status(400).json({ error: `Unsupported file format: ${fileExtension}` });
+      res.status(400).json({ error: `Unsupported file format: ${mimeType}` });
       return;
     }
 
-    // Upload the compressed image to Cloudinary
     const result = await cloudinary.uploader.upload(compressedImagePath, {
       folder: "compressed-images",
     });
 
     if (result) {
       await CntModel.findOneAndUpdate(
-        {}, // find the document (or you can use a query)
+        {},
         { $inc: { ImageCompressed: 1 } },
-        { new: true, upsert: true } // upsert: create document if it doesn't exist
+        { new: true, upsert: true }
       );
     }
-    
 
-    // Standardize original file path
     const originalImagePath = path.join(uploadDir, path.basename(req.file.path));
-
-    // Delete both files locally
     setTimeout(() => deleteFileGracefully(originalImagePath, 3), 5000);
     setTimeout(() => deleteFileGracefully(compressedImagePath, 3), 5000);
 
