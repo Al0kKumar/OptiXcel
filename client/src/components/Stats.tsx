@@ -1,8 +1,7 @@
 "use client";
-
-import React from 'react';
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
+import React from "react";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 interface StatsSectionProps {
   compressedCount: number;
@@ -10,7 +9,6 @@ interface StatsSectionProps {
 }
 
 const StatsSection: React.FC<StatsSectionProps> = ({ compressedCount, convertedCount }) => {
-  // Trigger when at least 50% of the component is visible
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
 
   return (

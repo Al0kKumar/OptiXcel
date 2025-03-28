@@ -1,31 +1,6 @@
 @import "tailwindcss";
 
-:root {
-    /* Light mode defaults */
-    --bg-color: #ffffff;
-    --text-color: #27272a; /* zinc-950 */
-    --primary-color: #f97316; /* orange-500 */
-  }
-  
-  .dark {
-    /* Dark mode overrides */
-    /* // #27272a; */
-    --bg-color: #000000; /* zinc-950 */
-    --text-color: #ffffff;
-    --primary-color: #f97316; /* orange-500 stays */
-  }
-  
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  /* Apply to your components */
-  .bg-primary {
-    background-color: var(--primary-color);
-  }
-
-  main {
-    padding-top: 80px; /* Matches Navbar height (~60px logo + padding) */
+body {
+    background-color: #27272a; /* zinc-950 */
+    color: #ffffff;
   }
