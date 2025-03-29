@@ -18,6 +18,8 @@ export default function Home() {
     }
   };
 
+  console.log("env is ", `${process.env.NEXT_PUBLIC_API_URL}`);
+
   const comp = 123;
   const conv = 59;
 

@@ -1,9 +1,7 @@
-// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  reactStrictMode: true, // Improves debugging
+  output: "standalone", // Ensures proper deployment
 };
 
 module.exports = nextConfig;
