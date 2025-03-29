@@ -11,13 +11,8 @@ app.use(express.json());
 
 
 
-const corsOptions = {
-  origin: "http://localhost:3000", // Replace with your frontend's URL
-  methods: ["GET", "POST"], // Allow necessary methods
-  allowedHeaders: ["Content-Type"], // Allow necessary headers
-};
+app.use(cors({ origin: "https://opti-xcel.vercel.app" }));
 
-app.use(cors(corsOptions));
 
 connectDb();
 // Routes
