@@ -87,6 +87,7 @@ export const convertImage = async (
     // Upload the converted image to Cloudinary
     const result = await cloudinary.uploader.upload(convertedImagePath, {
       folder: "converted-images",
+      transformation:[{ fetch_format: targetFormat }]
     });
 
     if (result) {
@@ -103,6 +104,8 @@ export const convertImage = async (
     // Delete both files locally after a short delay
     setTimeout(() => deleteFileGracefully(originalImagePath, 3), 5000);
     setTimeout(() => deleteFileGracefully(convertedImagePath, 3), 5000);
+
+    console.log("url : ", result.secure_url,);
 
     res.status(200).json({
       message: "Image converted and uploaded successfully",
