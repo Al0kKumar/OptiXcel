@@ -1,17 +1,9 @@
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   /* config options here */
-// };
-
-// export default nextConfig;
-
-
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: "standalone", // Ensures API routes work correctly
-  reactStrictMode: true, // Optional, but helps catch errors
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
