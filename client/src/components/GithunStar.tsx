@@ -1,37 +1,18 @@
 "use client";
-
-import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const GitHubStarButton = () => {
-  const [stars, setStars] = useState<number>(0);
-
-  useEffect(() => {
-    const fetchStars = async () => {
-      try {
-        const res = await fetch("https://api.github.com/Al0kKumar/OptiXcel");
-        const data = await res.json();
-        setStars(data.stargazers_count);
-      } catch (error) {
-        console.error("Failed to fetch star count", error);
-      }
-    };
-
-    fetchStars();
-  }, []);
-
+const RepoLogoLink = () => {
   return (
     <Link href="https://github.com/Al0kKumar/OptiXcel" legacyBehavior>
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center px-4 py-2 bg-gradient-to-r from-blue-800 to-purple-600 text-white rounded-full transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-[0_0_20px_5px_rgba(255,223,0,0.5)]"
+        className="p-3 bg-gradient-to-r from-violet-600 to-pink-500 rounded-full transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-[0_0_20px_5px_rgba(255,183,77,0.7)]"
       >
         <svg
-          className="w-6 h-6 mr-2 fill-current"
+          className="w-8 h-8 fill-current text-white"
           viewBox="0 0 16 16"
-          version="1.1"
-          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             fillRule="evenodd"
@@ -44,11 +25,9 @@ const GitHubStarButton = () => {
             8.013 0 0016 8c0-4.42-3.58-8-8-8z"
           ></path>
         </svg>
-        <span className="mr-2">Star</span>
-        <span>{stars}+</span>
       </a>
     </Link>
   );
 };
 
-export default GitHubStarButton;
+export default RepoLogoLink;

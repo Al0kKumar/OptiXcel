@@ -23,7 +23,7 @@ const FeaturePage = () => {
 
     const formData = new FormData();
     formData.append("file", file);
-    // Choose the target format based on your feature. Here, we hard-code "webp" as an example.
+    // Hard-coded target format (png) for this example
     formData.append("targetFormat", "png");
 
     try {
@@ -38,11 +38,9 @@ const FeaturePage = () => {
         router.push("/convert/jpgtopng/result");
       } else {
         console.error("Conversion failed", data.error);
-        // Optionally handle error in UI
       }
     } catch (error) {
       console.error("API call error:", error);
-      // Optionally handle error in UI
     } finally {
       setIsProcessing(false);
     }
@@ -67,7 +65,12 @@ const FeaturePage = () => {
         {!file ? (
           <FileUpload onFileSelect={handleFileSelect} />
         ) : (
-          <PreviewSection previewUrl={preview} onConvert={handleConvert} isProcessing={isProcessing} what="convert" />
+          <PreviewSection 
+            previewUrl={preview} 
+            onConvert={handleConvert} 
+            isProcessing={isProcessing} 
+            what="convert" 
+          />
         )}
       </div>
     </div>

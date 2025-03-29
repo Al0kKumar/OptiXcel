@@ -24,7 +24,7 @@ const FeaturePage = () => {
     const formData = new FormData();
     formData.append("file", file);
     // Choose the target format based on your feature. Here, we hard-code "webp" as an example.
-    formData.append("targetFormat", "webp");
+    formData.append("targetFormat", "jpg");
 
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/image/convert`, {
@@ -56,9 +56,9 @@ const FeaturePage = () => {
 
       {/* Top Section */}
       <div className="max-w-4xl mx-auto px-4 py-8 text-center">
-        <h1 className="text-4xl font-bold mb-2">WebP to PNG</h1>
+        <h1 className="text-4xl font-bold mb-2">WebP to JPG</h1>
         <p className="text-lg text-gray-300">
-          Upload your image to convert from webP to png while maintaining quality.
+          Upload your image to convert from webP to jpg while maintaining quality.
         </p>
       </div>
 

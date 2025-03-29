@@ -20,22 +20,22 @@ const FeaturesSection = () => {
     {
       name: 'PNG to WebP',
       link: '/convert/pngtowebP',
-      description: 'Convert your PNG images to JPG effortlessly.'
+      description: 'Convert your PNG images to WebP effortlessly.'
     },
     {
       name: 'WebP to PNG',
       link: '/convert/webPtopng',
-      description: 'Convert your PNG images to JPG effortlessly.'
+      description: 'Convert your WebP images to PNG effortlessly.'
     },
     {
       name: 'JPG to WebP',
       link: '/convert/jpgtowebP',
-      description: 'Convert your PNG images to JPG effortlessly.'
+      description: 'Convert your JPG images to WebP effortlessly.'
     },
     {
       name: 'WebP to JPG',
       link: '/convert/webPtojpg',
-      description: 'Convert your PNG images to JPG effortlessly.'
+      description: 'Convert your WebP images to JPG effortlessly.'
     },
     // Add more feature boxes as needed
   ];

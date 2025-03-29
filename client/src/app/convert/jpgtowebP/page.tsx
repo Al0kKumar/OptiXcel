@@ -35,7 +35,7 @@ const FeaturePage = () => {
 
       if (res.ok && data.url) {
         localStorage.setItem("resultUrl", data.url);
-        router.push("/convert/jpgtowebp/result");
+        router.push("/convert/jpgtowebP/result");
       } else {
         console.error("Conversion failed", data.error);
         // Optionally handle error in UI
