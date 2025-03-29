@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 
-app.use(cors({ origin: ["https://opti-xcel.vercel.app/", "http://localhost:3000"]}));
+app.use(cors({ origin: ["https://opti-xcel.vercel.app", "http://localhost:3000"]}));
 
 
 connectDb();
