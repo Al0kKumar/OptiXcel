@@ -22,13 +22,13 @@ const wordVariants = {
 };
 
 export const Hero = ({ scrollToFeatures }: { scrollToFeatures: () => void }) => {
-  // Define your main heading words. Adjust the words and order as needed.
+  // Define main heading words with gradient styles
   const mainHeadingWords = [
-    { text: "Instant", color: "text-orange-500" },
-    { text: "Image", color: "text-white" },
-    { text: "Compression", color: "text-orange-500" },
-    { text: "&", color: "text-white" },
-    { text: "Conversion.", color: "text-orange-400" },
+    { text: "Instant", gradient: "bg-gradient-to-r from-orange-400 via-orange-400 to-yellow-500" },
+    { text: "Image", gradient: "text-white" },
+    { text: "Compression", gradient: "bg-gradient-to-r from-yellow-400 via-orange-500 to-orange-400" },
+    { text: "&", gradient: "text-white" },
+    { text: "Conversion.", gradient: "bg-gradient-to-r from-orange-400 via-yellow-500 to-orange-400" },
   ];
 
   return (
@@ -45,7 +45,7 @@ export const Hero = ({ scrollToFeatures }: { scrollToFeatures: () => void }) => 
             <motion.span
               key={index}
               variants={wordVariants}
-              className={`mx-2 ${word.color}`}
+              className={`mx-2 bg-clip-text text-transparent ${word.gradient}`}
             >
               {word.text}
             </motion.span>

@@ -7,7 +7,7 @@ const RepoLogoLink = () => {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className="p-3 bg-gradient-to-r from-violet-600 to-pink-500 rounded-full transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-[0_0_20px_5px_rgba(255,183,77,0.7)]"
+        className="p-3 bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 rounded-full transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-[0_0_20px_5px_rgba(255,183,77,0.7)]"
       >
         <svg
           className="w-8 h-8 fill-current text-white"
